@@ -47,6 +47,7 @@ contract ERC20 is _ERC20, _IERC2612 {
             balances[msg.sender] -= amount;
             balances[to] += amount;
         }
+        emit Transfer(msg.sender, to, amount);
         return res;
     }
 
@@ -62,6 +63,7 @@ contract ERC20 is _ERC20, _IERC2612 {
             balances[to] += amount;
             allowances[from][msg.sender] -= amount;
         }
+        emit Transfer(from, to, amount);
         return res;
     }
 
@@ -82,6 +84,7 @@ contract ERC20 is _ERC20, _IERC2612 {
         if (res) {
             allowances[owner][spender] += amount;
         }
+        emit Approval(owner, spender, amount);
         return res;
     }
 
