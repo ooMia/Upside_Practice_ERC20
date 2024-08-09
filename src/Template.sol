@@ -55,3 +55,21 @@ interface IERC20 {
     /// @notice Returns the decimals places of the token.
     function decimals() external view returns (uint8);
 }
+
+// https://eips.ethereum.org/EIPS/eip-2612
+// https://github.com/ethereum/ercs/blob/master/ERCS/erc-2612.md
+interface IERC2612 {
+    function permit(
+        address owner,
+        address spender,
+        uint256 value,
+        uint256 deadline,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external;
+
+    function nonces(address owner) external view returns (uint);
+
+    // function DOMAIN_SEPARATOR() external view returns (bytes32);
+}
