@@ -9,14 +9,6 @@ interface _IERC20 is IERC20 {
 }
 
 interface _IERC2612 is IERC2612 {
-    struct Permit {
-        address owner;
-        address spender;
-        uint256 value;
-        uint256 nonce;
-        uint256 deadline;
-    }
-
     function _toTypedDataHash(
         bytes32 structHash
     ) external view returns (bytes32);

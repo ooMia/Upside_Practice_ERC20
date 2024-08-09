@@ -10,6 +10,7 @@ contract ERC20 is _ERC20, _IERC2612 {
             "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)"
         );
 
+    // https://eips.ethereum.org/EIPS/eip-2612#specification
     bytes32 immutable DOMAIN_SEPARATOR =
         keccak256(
             abi.encode(
@@ -124,7 +125,6 @@ contract ERC20 is _ERC20, _IERC2612 {
     }
 
     // DOMAIN_SEPARATOR(Optional)
-    // https://eips.ethereum.org/EIPS/eip-2612#specification
     function _toTypedDataHash(
         bytes32 structHash
     ) public view override returns (bytes32) {
