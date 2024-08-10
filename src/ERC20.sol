@@ -11,7 +11,7 @@ contract ERC20 is _ERC20, _IERC2612 {
         );
 
     // https://eips.ethereum.org/EIPS/eip-2612#specification
-    bytes32 immutable DOMAIN_SEPARATOR =
+    bytes32 immutable public DOMAIN_SEPARATOR =
         keccak256(
             abi.encode(
                 keccak256(
