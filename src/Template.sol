@@ -71,5 +71,5 @@ interface IERC2612 {
 
     function nonces(address owner) external view returns (uint);
 
-    // function DOMAIN_SEPARATOR() external view returns (bytes32);
+    function DOMAIN_SEPARATOR() external view returns (bytes32);
 }
