@@ -56,7 +56,7 @@ contract ERC20 is _ERC20, _IERC2612 {
         address from,
         address to,
         uint256 amount
-    ) external override statusModifier(msg.sender) returns (bool) {
+    ) external override statusModifier(from) returns (bool) {
         bool res = (balances[from] >= amount) &&
             (allowances[from][msg.sender] >= amount);
         if (res) {
