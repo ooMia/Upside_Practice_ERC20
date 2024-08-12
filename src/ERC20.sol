@@ -80,7 +80,7 @@ contract ERC20 is _ERC20, _IERC2612 {
         address owner,
         address spender,
         uint256 amount
-    ) public statusModifier(owner) returns (bool) {
+    ) statusModifier(owner) returns (bool) {
         bool res = (balances[owner] >= amount);
         if (res) {
             allowances[owner][spender] += amount;
