@@ -50,6 +50,7 @@ abstract contract _ERC20 is _IERC20 {
         if (res) {
             balances[msg.sender] -= amount;
             balances[to] += amount;
+            emit Transfer(msg.sender, to, amount);
         }
         return res;
     }
@@ -65,6 +66,7 @@ abstract contract _ERC20 is _IERC20 {
             balances[from] -= amount;
             balances[to] += amount;
             allowances[from][msg.sender] -= amount;
+            emit Transfer(from, to, amount);
         }
         return res;
     }
@@ -76,6 +78,7 @@ abstract contract _ERC20 is _IERC20 {
         bool res = (balances[msg.sender] >= amount);
         if (res) {
             allowances[msg.sender][spender] += amount;
+            emit Approval(msg.sender, spender, amount);
         }
         return res;
     }
